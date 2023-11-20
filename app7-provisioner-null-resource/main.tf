@@ -30,7 +30,8 @@ resource "null_resource" "null" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("week12b.pem")
+   private_key = file("week12b.pem")
+
     host        = aws_instance.name.public_dns
     timeout     = "5m"
   }
@@ -56,5 +57,5 @@ resource "null_resource" "null" {
     destination = "/tmp/week12.pem"
   }
 
-  depends_on = [aws_instance.name]
+  depends_on = [aws_instance.name,aws_key_pair.ec2_key ]
 }
