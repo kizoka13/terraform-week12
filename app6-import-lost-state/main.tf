@@ -1,4 +1,4 @@
-resource "aws-iam_group" "demo" {
+resource "aws_iam_group" "demo" {
   name = "security"
 }
 
